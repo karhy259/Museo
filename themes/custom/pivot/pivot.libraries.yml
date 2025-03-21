@@ -1,0 +1,102 @@
+global-styling:
+  version: 8.0
+  css:
+    base:
+      css/elegant-icons.min.css: {}
+      css/flexslider.min.css: {}
+      css/lightbox.min.css: {}
+      css/line-icons.min.css: {}
+    theme:
+      css/theme.css: {}
+      css/custom.css: {}
+      css/local.css: {}
+  js:
+    js/jquery.plugin.min.js: {}
+    js/isotope.min.js: {}
+    js/jquery.countdown.min.js: {}
+    js/jquery.flexslider-min.js: {}
+    js/lightbox.min.js: {}
+    js/modernizr-2.6.2-respond-1.1.0.min.js: {}
+    js/scrollReveal.min.js: {}
+    js/skrollr.min.js: {}
+    js/smooth-scroll.min.js: {}
+    js/spectragram.min.js: {}
+    js/twitterFetcher_v10_min.js: {}
+    js/scripts.js: {}
+    js/global.js: {}
+  dependencies:
+    - core/jquery
+ckeditor_js:
+  version: 8.0
+  js:
+    js/ckeditor.config.js
+aquatica-styling:
+  version: 8.0
+  css:
+    theme:
+      css/theme-aquatica.css: {}
+aspirin-styling:
+  version: 8.0
+  css:
+    theme:
+      css/theme-aspirin.css: {}
+blues-styling:
+  version: 8.0
+  css:
+    theme:
+      css/theme-blues.css: {}
+buddha-styling:
+  version: 8.0
+  css:
+    theme:
+      css/theme-buddha.css: {}
+campfire-styling:
+  version: 8.0
+  css:
+    theme:
+      css/theme-campfire.css: {}
+cobalt-styling:
+  version: 8.0
+  css:
+    theme:
+      css/theme-cobalt.css: {}
+dusk-styling:
+  version: 8.0
+  css:
+    theme:
+      css/theme-dusk.css: {}
+eco-styling:
+  version: 8.0
+  css:
+    theme:
+      css/theme-eco.css: {}
+matte-styling:
+  version: 8.0
+  css:
+    theme:
+      css/theme-matte.css: {}
+mustang-styling:
+  version: 8.0
+  css:
+    theme:
+      css/theme-mustang.css: {}
+rocklobster-styling:
+  version: 8.0
+  css:
+    theme:
+      css/theme-rocklobster.css: {}
+sunset-styling:
+  version: 8.0
+  css:
+    theme:
+      css/theme-sunset.css: {}
+tronic-styling:
+  version: 8.0
+  css:
+    theme:
+      css/theme-tronic.css: {}
+zest-styling:
+  version: 8.0
+  css:
+    theme:
+      css/theme-zest.css: {}

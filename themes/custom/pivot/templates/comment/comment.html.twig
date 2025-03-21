@@ -1,0 +1,25 @@
+
+{%
+  set classes = [
+    'comment',
+    'js-comment',
+    status != 'published' ? 'comment--' ~ status,
+    comment.owner.anonymous ? 'by-anonymous',
+    author_id and author_id == commented_entity.getOwnerId() ? 'by-' ~ commented_entity.getEntityTypeId() ~ '-author',
+    'clearfix',
+  ]
+%}
+
+<div class="blog-comment">
+  <div class="user">
+    {{ user_picture }}
+  </div>
+  <div class="message">
+    <div class="info">
+      <h6>{{ author }}</h6>
+      <span class="date alt-font sub">{{ comment.getCreatedTime|date('F d') }}</span>      
+    </div>
+    
+    {{ content }}    
+  </div>
+</div>
