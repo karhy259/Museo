@@ -14,7 +14,7 @@ function pivot_theme_suggestions_page_alter(array &$suggestions, array $variable
 
   if ($node = \Drupal::routeMatch()->getParameter('node')) {
     $content_type = $node->bundle();
-    if ($content_type == 'full_page' or $content_type == 'article' or $content_type == 'project') {
+    if ($content_type == 'full_page' or $content_type == 'article' or $content_type == 'project' ) {
 	  $suggestions[] = 'page__fullwidth';
 	}
   }

@@ -1,0 +1,119 @@
+{#
+/**
+ * @file
+ * Plantilla personalizada para el bloque de Galería de Proyectos
+ */
+#}
+
+{%
+  set classes = [
+    'view',
+    'view-' ~ id|clean_class,
+    'view-id-' ~ id,
+    'view-display-id-' ~ display_id,
+    dom_id ? 'js-view-dom-id-' ~ dom_id,
+  ]
+%}
+
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {{ title }}
+  {{ title_suffix }}
+
+  {% if exposed %}
+    <div class="galeria-filtros">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <form{{ exposed.attributes.addClass('row') }}>
+              <div class="col-md-5">
+                {{ exposed.fecha }}
+              </div>
+              <div class="col-md-5">
+                {{ exposed.proyecto }}
+              </div>
+              <div class="col-md-2 text-center">
+                <button type="submit" class="btn btn-primary consultar-btn">Consultar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if rows %}
+    <div class="galeria-contenido">
+      <div class="container">
+        {% for row in rows %}
+          {# Extraer datos de los campos #}
+          {% set titulo = row.content['#row']._entity.title.value %}
+          {% set aka = row.content['#row']._entity.field_a_k_a.value %}
+          {% set estilo = row.content['#row']._entity.field_estilo.value %}
+          {% set fecha = row.content['#row']._entity.field_fecha.value|date('Y') %}
+          {% set proyecto = row.content['#row']._entity.field_proyecto.value %}
+          {% set tecnica = row.content['#row']._entity.field_tecnica.value %}
+          {% set zona = row.content['#row']._entity.field_zona_mab.value %}
+          {% set lugar = row.content['#row']._entity.field_lugar_de_intervencion.value %}
+          {% set imagenes = row.content['#row']._entity.field_imagenes %}
+          
+          <div class="galeria-info">
+            <div class="row">
+              <div class="col-md-6">
+                <h2 class="titulo-obra">{{ titulo }}</h2>
+                {% if aka %}
+                  <p class="aka">{{ aka }}</p>
+                {% endif %}
+                <p class="fecha">{{ fecha }}</p>
+              </div>
+              <div class="col-md-6">
+                {% if tecnica %}
+                  <p class="tecnica"><strong>Técnica:</strong> {{ tecnica }}</p>
+                {% endif %}
+                {% if zona %}
+                  <p class="zona"><strong>Zona MAB:</strong> {{ zona }}</p>
+                {% endif %}
+                {% if lugar %}
+                  <p class="lugar"><strong>Lugar de intervención:</strong> {{ lugar }}</p>
+                {% endif %}
+                {% if estilo %}
+                  <p class="estilo"><strong>Estilo:</strong> {{ estilo }}</p>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          
+          <div class="galeria-visor">
+            <div class="visor-principal">
+              <button class="nav-btn prev-btn"><i class="fa fa-chevron-left"></i></button>
+              <div class="imagen-principal">
+                {% if imagenes[0] %}
+                  <img src="{{ file_url(imagenes[0].entity.uri.value) }}" alt="{{ titulo }}">
+                {% endif %}
+              </div>
+              <button class="nav-btn next-btn"><i class="fa fa-chevron-right"></i></button>
+            </div>
+            
+            <div class="galeria-miniaturas">
+              <button class="nav-btn mini-prev-btn"><i class="fa fa-chevron-left"></i></button>
+              <div class="miniaturas-container">
+                {% for imagen in imagenes %}
+                  <div class="miniatura {% if loop.first %}active{% endif %}" data-index="{{ loop.index0 }}">
+                    <img src="{{ file_url(imagen.entity.uri.value) }}" alt="{{ titulo }} - imagen {{ loop.index }}">
+                  </div>
+                {% endfor %}
+              </div>
+              <button class="nav-btn mini-next-btn"><i class="fa fa-chevron-right"></i></button>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+
+  {% if empty %}
+    <div class="view-empty">
+      {{ empty }}
+    </div>
+  {% endif %}
+</div>

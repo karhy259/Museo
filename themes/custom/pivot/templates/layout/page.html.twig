@@ -56,9 +56,10 @@
  * @see html.html.twig
  */
 #}
-{% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
+
 
   <a id="top"></a>
+
 	
 {# Navbar #}
 <div class="nav-container menu-wrapper bg-dark">
@@ -66,7 +67,6 @@
     <div class="container">
       {% if page.user_left or page.user_right %}
       <div class="row utility-menu">
-
         <div class="col-sm-12">
           <div class="utility-inner clearfix">
             {% if page.user_left %}
@@ -88,7 +88,7 @@
         {% block navbar %}
           <div class="row nav-menu">
             <div class="col-sm-3 col-md-3 columns">
-               {{ page.branding }}
+            {{ page.branding }}
             </div>
         {% if page.navigation_collapsible %}
             <div class="col-sm-9 col-md-9 columns">
@@ -106,7 +106,7 @@
     </div>
   </nav>
 </div>
-
+{% set container = theme.settings.fluid_container ? 'container-fluid' : 'container' %}
 
 {# Main #}
 {% block main %}

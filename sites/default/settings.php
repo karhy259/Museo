@@ -286,7 +286,7 @@ $databases = [];
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = '7CcrSCakBlGPdrdixxvGJJkkGPhQtJ1sdRUYVaT-uCFvBCq86XZiI_2l4A1LcHQbGT68v4eoJA';
+$settings['hash_salt'] = 'yvl_jMhc2Q4n9s6F1My9IaAvLi_uB9wTWmkfwM1DomAZrxnDu8XXGoq3ABzd4YCyM76Fd_q-wg';
 
 /**
  * Deployment identifier.
@@ -881,10 +881,6 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
-// Aumentar límites de PHP
-ini_set('max_execution_time', 300);
-ini_set('memory_limit', '256M');
-
 $databases['default']['default'] = array (
   'database' => 'museo',
   'username' => 'root',
@@ -897,4 +893,4 @@ $databases['default']['default'] = array (
   'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
   'autoload' => 'core/modules/mysql\\src\\Driver\\Database\\mysql\\',
 );
-$settings['config_sync_directory'] = 'sites/default/files/config_bM30-KeWJl1tL3h9Sojoit4ZhX6j_AIoGGUqI1026LeDF19HmjbvTSrSBkTiG6UiBFB41NX2Lg/sync';
+$settings['config_sync_directory'] = 'sites/default/files/config_5hNHMYMn9Wgyv-qHGo5c8fIlHmJZbMBmVvfOC1Jav63ixAg2QeX3DT2GTMirpRO84IZhfPVuvA/sync';
